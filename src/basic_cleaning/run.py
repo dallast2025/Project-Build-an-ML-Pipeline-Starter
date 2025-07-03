@@ -54,28 +54,28 @@ if __name__ == "__main__":
     parser.add_argument(
         "--input_artifact", 
         type = str, ## INSERT TYPE HERE: str, float or int,
-        help = "## INSERT DESCRIPTION HERE",
+        help = "Path to the dataset to be cleaned",
         required = True
     )
 
     parser.add_argument(
         "--output_artifact", 
         type = str, ## INSERT TYPE HERE: str, float or int,
-        help = "## INSERT DESCRIPTION HERE",
+        help = "Path where the cleaned dataset will be saved.",
         required = True
     )
 
     parser.add_argument(
         "--output_type", 
         type = str, ## INSERT TYPE HERE: str, float or int,
-        help = "## INSERT DESCRIPTION HERE",
+        help = "The file type of the output artifact.",
         required = True
     )
 
     parser.add_argument(
         "--output_description", 
         type = str,## INSERT TYPE HERE: str, float or int,
-        help = "## INSERT DESCRIPTION HERE",
+        help = "Description for the output artifact",
         required = True
     )
 
