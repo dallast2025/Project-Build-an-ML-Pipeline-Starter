@@ -82,7 +82,7 @@ def go(config: DictConfig):
                     "max_price":config["etl"]["max_price"]
                 }, 
             ) 
-            pass
+            
 
         if "data_split" in active_steps:
             ##################
@@ -98,7 +98,7 @@ def go(config: DictConfig):
                     "stratify_by": config["modeling"]["stratify_by"]
                 },
             )
-            pass
+            
 
         if "train_random_forest" in active_steps:
 
@@ -126,15 +126,23 @@ def go(config: DictConfig):
             )
             ##################
 
-            pass
+            
 
         if "test_regression_model" in active_steps:
 
             ##################
             # Implement here #
             ##################
+             mlflow.run(
+                os.path.join(hydra.utils.get_original_cwd(), "componets", "test_regression_model"),
+                entry_point="main",
+                parameters = {
+                    "mlflow_model": "random_forest_export:prod",
+                    "test_dataset": "test_data.csv:latest"
+                }
+            )
 
-            pass
+            
 
 
 if __name__ == "__main__":
