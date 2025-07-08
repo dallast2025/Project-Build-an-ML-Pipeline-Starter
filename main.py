@@ -111,7 +111,13 @@ def go(config: DictConfig):
             # step
 
             ##################
-            # Implement here #
+            mlflow.run(
+                os.path.join(hydra.utils.get_original_cwd(), "src", "train_random_forest"),
+                entry_point="main",
+                parameters = {
+                    "trainval_artifact"
+                }
+            )
             ##################
 
             pass
